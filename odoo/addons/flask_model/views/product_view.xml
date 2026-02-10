@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <!-- Vista árbol -->
+    <record id="view_flask_product_tree" model="ir.ui.view">
+        <field name="name">flask.product.tree</field>
+        <field name="model">flask.product</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="price"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Vista formulario -->
+    <record id="view_flask_product_form" model="ir.ui.view">
+        <field name="name">flask.product.form</field>
+        <field name="model">flask.product</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="price"/>
+                        <field name="description"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Acción -->
+    <record id="action_flask_product" model="ir.actions.act_window">
+        <field name="name">Products</field>
+        <field name="res_model">flask.product</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Menú principal -->
+    <menuitem id="menu_flask_root"
+        name="Flask"
+        sequence="10"
+        groups="base.group_user"/>
+
+    <!-- Submenú -->
+    <menuitem id="menu_flask_product"
+        name="Products"
+        parent="menu_flask_root"
+        action="action_flask_product"
+        sequence="10"
+        groups="base.group_user"/>
+
+
+</odoo>
